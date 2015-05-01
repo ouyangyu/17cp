@@ -1,0 +1,110 @@
+<include file="__THEME__/public_header" />
+
+<div id="page-wrap">
+    <div id="main-wrap">
+        <div id="col" class="st-grid content-bg">
+            <div id="col4" class="main-left">
+                <!--tab菜单-->
+                <include file="_tabs" />
+            </div>
+            <div id="col7" class="main-right mt15">
+                <div id="content">
+                    <div id="yjzx_jqyj_1" class="content_wrap">
+                        <h2>阅卷中心&gt;&gt;{$tabName}</h2>
+                        <div class="box1 box">
+                            <h3>考试项目</h3>
+                            <ul>
+                                <li>
+                                    <a>考试名称：</a>
+                                    <select style="width: 350px">
+                                        <volist name="packNameList" id="pnl">
+                                            <option value="{$pnl.pack.id}">{$pnl.period_name}{$pnl.grade_name}{$pnl.pack_name}</option>
+                                        </volist>
+                                    </select>
+                                    <a class="addtestname" href="{:U('testin/Index/testSetting')}">新增考试</a>
+
+                                </li>
+
+                                <div class="clear"></div>
+                            </ul>
+                            <ul>
+                                <div class="clear"></div>
+                                <li>
+                                    <a class="">班　　级:</a>
+                                    <select id="selectclass" class="tsm-select" name="class_id">
+                                        <volist name="clist" id="vo">
+                                            <option <if condition=" $_SESSION['class_id'] eq $vo['class_id'] ">selected="selected"</if> value="{$vo.class_id}" >{$vo.class_name}</option>
+                                        </volist>
+                                    </select>
+                                    <a class="addtestname" href="{:U('testin/Index/stuManager')}">导入学生</a>
+
+
+                                </li>
+                                <li>
+                                    <a class="class">科　　目：</a>
+                                    <select id="selectSubject" class="tsm-select" name="subject_id">
+                                        <volist name="subjectList" id="vo">
+                                            <option <if condition=" $_SESSION['subject_id'] eq $vo['subject_id'] ">selected="selected"</if> value="{$vo.subject_id}" >{$vo.subject_name}</option>
+                                        </volist>
+                                    </select>
+                                </li>
+
+                                <div class="clear"></div>
+                            </ul>
+                        </div><!--box1 end-->
+                        <div class="box2 box">
+                            <h3>试卷信息</h3>
+                            <ul>
+                                <li>总　分：
+                                    <select>
+                                        <option  value="100"  > 100分</option>
+                                        <option  value="120"  > 120分</option>
+                                        <option  value="150"  > 150分</option>
+
+                                    </select>
+                                </li>
+                                <li>客观题：<input type="text" class="small"/>题　　--到--　　<input type="text" class="small"/>题，共<input type="text" class="small"/>分。
+                                </li>
+                                <li>主观题：共<input type="text" class="small"/>分。
+                                </li>
+
+                            </ul>
+                        </div><!--box1 end-->
+                        <div class="box3 box">
+                            <div class="down">
+                                <h3>下载模板</h3>
+                                <p>附：<a href="{:U('testin/Index/downloadExcel')}">学生题目明细成绩模版下载</a></p>
+                            </div>
+                            <div class="clear"></div>
+
+                            <div class="upload">
+                                <h3>上传成绩</h3>
+                                <p>请上传 Excel 成绩表格：　<input type="file"></p>
+                            </div>
+                        </div>
+                        <!--box3 end-->
+                        <button class="next">确定</button>
+
+
+                        <div class="addExamInformation" style="display: none">
+                            <h4>导入学生信息<a class="exit"></a></h4>
+                            <ul>
+                                <li>考试信息： <input type="text"></li>
+                                <li>年　　级： <input type="text"></li>
+                                <li>科　　目： <input type="text"></li>
+                                <li>班　　级： <input type="text"></li>
+                                <li>考试时间： <input type="text"></li>
+                            </ul>
+                            <button>保存</button>
+                            <button>取消</button>
+                        </div><!--addExamInformation-->
+
+
+                    </div><!--content_wrap end-->
+                </div><!--content end-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<include file="__THEME__/public_footer" />

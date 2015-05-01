@@ -1,0 +1,101 @@
+<include file="__THEME__/public_header" />
+
+<div id="page-wrap">
+    <div id="main-wrap">
+        <div id="col" class="st-grid content-bg">
+            <div id="col4" class="main-left">
+                <!--tab菜单-->
+                <include file="_tabs" />
+            </div>
+            <div id="col7" class="main-right mt15">
+
+                    <div id="content" >
+                        <div class="content_wrap">
+                            <h2>设置中心&gt;&gt;{$tabName}</h2>
+<div style="height: 650px">
+    <!--信息设置项 基本信息-->
+    <div class="testsetting-model main-left">
+        <form id="newpack_form" action="{:U('testin/Index/saveTest')}" method="post">
+            <dl class="form-set form-contact">
+                <dd><div class="form-tt">学期：</div>
+                    <div class="form-row">
+                        <select class="tsm-select" name="period_id">
+                            <volist name="plist" id="vo">
+                                <option  value="{$vo.period_id}" >{$vo.period_name}</option>
+                            </volist>
+
+                        </select>
+                    </div></dd>
+                <dd><div class="form-tt">年级：</div>
+                    <div class="form-row">
+                        <select class="tsm-select" name="grade_id">
+                            <volist name="glist" id="vo">
+                                <option  value="{$vo.grade_id}" >{$vo.grade_name}</option>
+                            </volist>
+                        </select>
+                    </div></dd>
+                <dd><div class="form-tt"><font color="red"> * </font>考试名称：</div>
+                    <div class="form-row">
+                        <input id="pack_name_input" event-node="input_text" name="pack_name" type="text" class="tsm-input s-txt" /></div></dd>
+
+                <dd>
+                    <div class="form-tt"></div>
+                    <div class="form-row">
+                        <a id="addpack"  onclick="$('#newpack_form').submit();" href="#" class="btn-green-big">新增</a>
+                    </div>
+                </dd>
+            </dl>
+        </form>
+    </div>
+    <volist name="packList" id="pvo">
+        <div class="testsetting-model main-left">
+            <form id="updatePackForm" action="{:U('testin/Index/updateTest')}" method="post">
+                <dl class="form-set form-contact">
+                    <dd><div class="form-tt">学期：</div>
+                        <div class="form-row">
+                            <select class="tsm-select" name="period_id">
+                                <volist name="plist" id="vo">
+                                    <option value="{$vo.period_id}" <if condition=" $pvo['period_id'] eq $vo['period_id'] "> selected="selected"</if>   >{$vo.period_name}</option>
+                                </volist>
+
+                            </select>
+                        </div></dd>
+                    <dd><div class="form-tt">年级：</div>
+                        <div class="form-row">
+                            <select class="tsm-select" name="grade_id">
+                                <volist name="glist" id="vo">
+                                    <option  value="{$vo.grade_id}" <if condition=" $pvo['grade_id'] eq $vo['grade_id'] "> selected="selected"</if> >{$vo.grade_name}</option>
+                                </volist>
+                            </select>
+                        </div></dd>
+                    <dd><div class="form-tt"><font color="red"> * </font>考试名称：</div>
+                        <div class="form-row">
+                            <input id="pack_name_up_input" value="{$pvo.pack_name}" event-node="input_text" name="pack_name" type="text" class="tsm-input s-txt" /></div></dd>
+
+                    <dd>
+                        <div class="form-tt"></div>
+                        <div class="form-row">
+                            <input type="hidden" value="{$pvo.pack_id}" name="pack_id">
+                            <button  class="btn-green-big" type="button" onclick="$('#updatePackForm').submit();">修改</button>
+                        </div>
+                    </dd>
+                </dl>
+            </form>
+        </div>
+    </volist>
+</div>
+
+
+                            <p class="page" style="text-align: center">{$page}</p>
+
+                        </div>
+                        </div>
+
+                       </div></div>
+
+            </div>
+        </div>
+
+
+
+<include file="__THEME__/public_footer" />

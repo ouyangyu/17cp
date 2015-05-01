@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+*{font-family: Arial, Helvetica, "Microsoft Yahei", sans-serif, sans-serif; box-sizing: content-box;}
+::selection {
+    background: #35b558;
+    color: #fff;}
+#welcome .wrap{ height:43px; padding-right:40px;}
+#welcome p{ text-align:right;padding-top:7px; font-size:12px; color:#ff6e00;}
+#welcome p .exit{ margin-left:20px; font-size:12px; color:#299be4; text-decoration:underline; cursor:pointer;}
+
+#main_left{ width:238px; float:left;}
+#main_left .nav{ width:238px; height:740px; background:#299be4;}
+#main_left .navWrap{ width:234px; height:736px; border:1px solid #77c1f0; margin:0 auto;}
+#main_left .nav .titlebox{overflow:hidden;}
+#main_left .nav .title{}
+#main_left .nav .title p{ float:left;height:49px; width:107px; line-height:49px; font-size:14px; color:#fff; padding-left:77px; overflow:hidden; background:url(../images/icon_nav.png) no-repeat; }
+#main_left .nav .title .p_active{ background-color:#40bff4;}
+#main_left .nav .title .icon{ float:left; height:49px; width:50px; background:url(../images/icon_nav.png) 22px -582px no-repeat;}
+#main_left .nav .title .icon_active{ background:url(../images/icon_nav.png) 22px -550px #40bff4 no-repeat;}
+#main_left .nav .title_1 p{background-position:36px 19px;}
+#main_left .nav .title_2 p{background-position:36px -136px;}
+#main_left .nav .title_3 p{background-position:36px -295px;}
+#main_left .nav .title .subMenuBox{ clear:both; overflow:hidden; overflow:hidden;}
+#main_left .nav .title .subMenuBox li{ width:100%; height:36px; cursor:pointer; background:url(../images/icon_nav.png) no-repeat;}
+#main_left .nav .title .subMenuBox .subMenu_1{background-position:40px -30px;}
+#main_left .nav .title .subMenuBox .subMenu_1 a{ color:#fff;}
+#main_left .nav .title .subMenuBox .subMenu_2{background-position:40px -67px;}
+#main_left .nav .title .subMenuBox .subMenu_3{background-position:40px -104px;}
+#main_left .nav .title .subMenuBox .subMenu_4{background-position:40px -186px;}
+#main_left .nav .title .subMenuBox .subMenu_5{background-position:40px -223px;}
+#main_left .nav .title .subMenuBox .subMenu_6{background-position:40px -260px;}
+#main_left .nav .title .subMenuBox .subMenu_7{background-position:40px -345px;}
+#main_left .nav .title .subMenuBox .subMenu_8{background-position:40px -382px;}
+#main_left .nav .title .subMenuBox .subMenu_9{background-position:40px -414px;}
+#main_left .nav .title .subMenuBox .subMenu_10{background-position:40px -450px;}
+#main_left .nav .title .subMenuBox .subMenu_11{background-position:40px -487px;}
+#main_left .nav .title .subMenuBox li a{ font-size:12px; color:#afdefc; line-height:36px;padding-left:102px;}
+#main_left .nav .subscribe_btn{ height:20px;font-size:14px; color:#fff; margin-left:67px; line-height:20px; padding-left:24px;  *padding-left:14px;background:none; background:url(../images/icon_nav.png) -30px -529px; no-repeat;}

@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+*{font-family: Arial, Helvetica, "Microsoft Yahei", sans-serif, sans-serif; box-sizing: content-box;}
+html body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, input, textarea, p, th, td, img, em, hr,select,button{margin: 0;padding: 0;-webkit-text-size-adjust: none; border:0 none;}
+body {background: #fff;}
+ul{ list-style:none;}
+fieldset, img,input ,button{ border:0; }
+ol, ul { list-style:none; }
+input, button, select, textarea ,a { outline:none; } 
+textarea { resize:none; } 
+input,button{outline:none;}
+.check_btn{vertical-align:-2px}
+a{text-decoration:none;}
+.clear{ clear:both;}
+button,.btn{ cursor:pointer;}
+.btn:hover{}
+#wrapper{background:#fff;}
+h1 a{ display: block;height: 0;width: 0;overflow: hidden;}
+/*公共样式 start*/
+#content{ margin-left:25px;position:relative;overflow:hidden;}
+.content_wrap{ width:775px;border:1px solid #e7e7e7; border-top:none; overflow:hidden;}
+h2{ height:47px; width:775px; background:url(../images/icon_nav_cjdb.png) #35B558 25px -1935px no-repeat; color:#fff;font-weight:normal; font-size:14px; line-height:47px; padding-left:50px;  }
+h3{color:#333; font-size:14px; padding-top:37px; padding-left:35px; padding-bottom:35px;}
+input{ font-size:12px; color:#888;}
+.tablebox table{width:100%; border-collapse:collapse;text-align:center;}
+.tablebox th{ height:40px; background:#f3f3f3; color:#333; font-size:14px; font-weight:normal;}
+.tablebox td{ height:40px;color:#888; font-size:12px;} 
+.tablebox td a{ font-size:12px; color:#019bfe; margin:0 15px;cursor:pointer;}
+.tablebox td a:hover{ text-decoration:underline;}
+.page{ text-align:center; padding-top:28px; padding-bottom:30px;}
+.page span{ font-size:14px; color:#888; cursor:pointer;}
+.page span:hover{ text-decoration:underline;}
+.page a{ display:inline-block; font-size:14px; color:#888; width:17px; height:17px; text-align:center; line-height:17px; border-radius:3px; cursor:pointer;}
+.page a:hover{ background:#35B558; color:#fff;}
+.tablebox{ width:803px; margin:0 auto; overflow:hidden; border:1px solid #c4c4c4;}
+.tablebox .tableTop{ width:100%; height:40px; background:#35B558; padding-left:24px;}
+.tablebox .tableTop a{ vertical-align:middle; line-height:40px; font-size:16px; color:#fff; *vertical-align:bottom;}
+.tablebox .tableTop button{ vertical-align:middle; width:71px; height:19px; border:1px solid #999999; border-radius:5px; color:#666666; font-size:12px; margin-left:600px;*margin-top:11px; line-height:18px; background:#fff;}
+.tablebox .tableTop button:hover{ color:#40bff4; border:1px solid #40bff4;}
+.tablebox .tableTop .add{ margin-left:386px;}
+.check_btn{ vertical-align:-2px;}
+/*公共样式 end*/
+#cjfxzx_dkcjbg{ height:700px;}
+#cjfxzx_dkcjbg .search{width:820px; margin:0 auto; border-bottom:1px solid #c0c0c0;}
+#cjfxzx_dkcjbg .search ul{}
+#cjfxzx_dkcjbg .search ul li{ float:left; margin-left:66px; margin-bottom:30px;}
+#cjfxzx_dkcjbg .search ul li a{ font-size:12px; color:#888; line-height:25px;}
+#cjfxzx_dkcjbg .search ul li select{ width:108px; height:25px;font-size:12px; color:#888; border:1px solid #c0c0c0;}
+#cjfxzx_dkcjbg .search ul li button{ width:74px; height:20px; border:1px solid #d4d4d4; border-radius:3px; background:#e5e6e7; color:#888; margin-left:67px; line-height:20px;}
+#cjfxzx_dkcjbg .search ul li button:hover{ background:#35B558; color:#fff;}
+#cjfxzx_dkcjbg .analysisReport{ position:relative;}
+#cjfxzx_dkcjbg .analysisReport .nav{ display:inline-block; border:1px solid #c5c5c5; margin-left:20px; margin-bottom:17px;}
+#cjfxzx_dkcjbg .analysisReport .nav li{ height:39px; line-height:39px; float:left; color:#333; font-size:14px; padding:0 12px;cursor:pointer;}
+#cjfxzx_dkcjbg .analysisReport .nav li:hover{ background:#35B558; color:#fff; }
+#cjfxzx_dkcjbg .analysisReport .subContent{ display:none; position:absolute; left:20px; top:150px;}
+#cjfxzx_dkcjbg .analysisReport .subContent5{ display:block;}
+#cjfxzx_dkcjbg .analysisReport .tableTop button.addScores_btn,#cjfxzx_dkcjbg .analysisReport .tableTop button.addQuestions_btn{width:102px; margin-left:436px;}
+#cjfxzx_dkcjbg .analysisReport .tableTop button.delScores_btn,#cjfxzx_dkcjbg .analysisReport .tableTop button.delQuestions_btn{width:102px; margin-left:40px;}
+#cjfxzx_dkcjbg .analysisReport .addBox{display:none; position:absolute; width:313px; height:281px; border:1px solid #d6d6d6; border-radius:5px; top:168px; left:223px; background:#fff; overflow:hidden;}
+#cjfxzx_dkcjbg .analysisReport .addBox h4{ background:#35B558; width:100%; height:49px; color:#fff; font-size:12px; line-height:49px; padding-left:15px; margin-bottom:28px;}
+#cjfxzx_dkcjbg .analysisReport .addBox h4 .exit{ cursor:pointer;width:20px; height:20px; background:#f00; float:right; margin-top:13px; margin-right:31px;background:url(../images/icon_nav.png) no-repeat 0 -683px; *margin-top:-33px;}
+#cjfxzx_dkcjbg .analysisReport .addBox .box{ padding-bottom:19px;}
+#cjfxzx_dkcjbg .analysisReport .addBox a{ font-size:12px; color:#888; padding-left:39px;}
+#cjfxzx_dkcjbg .analysisReport .addBox input{width:126px; height:15px; border:1px solid #e7e8e9; margin-bottom::26px; font-size:12px; color:#888;}
+#cjfxzx_dkcjbg .analysisReport .addBox button{ width:74px; height:20px; color:#888; font-size:12px; line-height:20px; border:1px solid #d4d4d4; border-radius:3px;}
+#cjfxzx_dkcjbg .analysisReport .addBox button:hover{ background:#35B558; color:#fff;}
+#cjfxzx_dkcjbg .analysisReport .addBox .btn1{ margin-left:63px; margin-top:20px;}
+#cjfxzx_dkcjbg .analysisReport .addBox .btn2{ margin-left:38px; margin-top:20px;}
+.cjfxzx_no{height: 810px}
+.cjfxzx_no h3{ padding-bottom:10px;padding-top: 15px}
+.cjfxzx_no p{ color:#888; font-size:12px; padding-bottom:13px; padding-left:50px; padding-right:60px;}
+.cjfxzx_no a{}
+.cjfxzx_no button{ margin-left:80px; margin-top:15px;  vertical-align:middle; width:390px; height:85px; line-height:85px; border:1px solid #e6bcb6; border-radius:10px; background:#db5a40; color:#fff; font-size:18px; font-weight:bold; text-align:center; letter-spacing:3px;	-webkit-transition: background 200ms linear;-moz-transition: background 200ms linear;transition: background 200ms linear;}
+.cjfxzx_no button:hover{ background:#b72a0e;}
+.cjfxzx_no .btnright{ margin-left:-1px; display:inline-block; width:226px; height:62px; background:url(../images/cjfxzx_tel_bg.gif) no-repeat;color:#fff; font-size:14px; *vertical-align:-16px; font-weight:bold; line-height:46px; padding-left:16px; }
+.cjfxzx_no .imgTitle{ padding-top:30px; padding-bottom:20px;}
+.cjfxzx_no img{ margin-left:46px; padding-bottom:50px;}
+
+
+
+
+
+

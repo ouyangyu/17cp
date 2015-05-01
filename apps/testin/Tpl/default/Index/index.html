@@ -1,0 +1,64 @@
+<include file="__THEME__/public_header" />
+<style>
+    .newlesson-list {
+        margin: 0px auto;
+        width: 1000px;
+        overflow: hidden;
+        margin-top: 20px !important;
+    }
+    .newlesson-list ul li {
+        float: left;
+        width: 490px;
+        height: 280px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+<div id="page-wrap">
+    <div id="main-wrap">
+        <div id="col" class="st-grid content-bg">
+            <div id="col4" class="main-left">
+                <!--tab菜单-->
+                <include file="_tabs" />
+            </div>
+            <div id="col7" class="main-right mt15">
+            <div id="content">
+                <div id="yjzx" class="content_wrap">
+                    <h2>{$tabName |default='云测评免费阅卷分析'}</h2>
+                    <div class="freeMarking">
+                        <h3>免费阅卷</h3>
+                        <p class="tip">云阅卷是在多年来积累的网上阅卷服务经验的基础上，以南昊云端服务器集群和云计算技术为依托创新开发的<br>阅卷服务应用系统。使用流程如下：</p>
+                        <ul>
+                            <li>
+                                <p class="txt txt1">1、考试信息</p>
+                            </li>
+                            <li><p class="nextIcon"></p></li>
+                            <li>
+                                <p class="txt txt2">2、导入学生</p>
+                            </li>
+                            <li><p class="nextIcon"></p></li>
+                            <li>
+                                <p class="txt txt3">3、导入成绩</p>
+                            </li>
+                            <li><p class="nextIcon"></p></li>
+                            <li>
+                                <p class="txt txt4">4、显示成绩</p>
+                            </li>
+                            <li>
+                                <a href="{:U('testin/Index/testSetting')}" class="start_btn">马上开始</a>
+
+                            </li>
+
+                            <div class="clear"></div>
+                        </ul>
+                    </div><!--freeMarking end-->
+
+                </div><!--content_wrap end-->
+            </div><!--content end-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<include file="__THEME__/public_footer" />

@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+*{font-family: Arial, Helvetica, "Microsoft Yahei", sans-serif, sans-serif; box-sizing: content-box;}
+html body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, fieldset, input, textarea, p, th, td, img, em, hr,select,button{margin: 0;padding: 0;-webkit-text-size-adjust: none; border:0 none;}
+body {background: #fff;}
+ul{ list-style:none;}
+fieldset, img,input ,button{ border:0; }
+ol, ul { list-style:none; }
+input, button, select, textarea ,a { outline:none; } 
+textarea { resize:none; } 
+input,button{outline:none;}
+.check_btn{vertical-align:-2px}
+a{text-decoration:none;}
+.clear{ clear:both;}
+button,.btn{ cursor:pointer;}
+.btn:hover{}
+#wrapper{background:#fff;}
+h1 a{ display: block;height: 0;width: 0;overflow: hidden;}
+
+#content{ margin-left:25px; position:relative;overflow:hidden;}
+.content_wrap{  height:800px; border:1px solid #e7e7e7; border-top:none; overflow:hidden;}
+h2{ height:47px; width:792px; background:url(../images/icon_nav.png) #35B558 25px -624px no-repeat; color:#fff;font-weight:normal; font-size:14px; line-height:47px; padding-left:50px;  }
+h3{color:#333; font-size:14px; padding-top:37px; padding-left:35px; padding-bottom:35px;}
+.searchBox{  margin:0 auto; border-bottom:1px solid #e7e7e7; padding-bottom:15px;padding-top: 15px}
+.searchBox a{ font-size:14px; color:#333; vertical-align:middle;}
+.searchBox .inputbox{ vertical-align:middle; display:inline; width:125px;  }
+.searchBox .inputbox input{ font-size:12px; color:#888;}
+.searchBox .num{ padding-left:110px;}
+.searchBox .name{ padding-left:31px;}
+.searchBox button{ width:74px; height:20px; border:1px solid #d4d4d4; border-radius:3px; background:#e5e6e7; color:#333; margin-left:67px; line-height:20px;}
+.searchBox button:hover{ background:#35B558; color:#fff;}
+.historyListBox{}
+.historyListBox .tablebox{ margin:0 auto; overflow:hidden; }
+.historyListBox .tablebox .tableTop{ width:100%; height:40px; background:#35B558; padding-left:24px;}
+.historyListBox .tablebox .tableTop a{ vertical-align:middle; line-height:40px; font-size:16px; color:#fff; *vertical-align:bottom;}
+.historyListBox .tablebox .tableTop button{ background-color:#fff;vertical-align:middle; width:89px; height:19px; border:1px solid #999999; border-radius:5px; color:#333; font-size:12px; margin-left:6px;*margin-top:11px; line-height:15px;}
+.historyListBox .tablebox .tableTop button:hover{ color:#35B558; }
+.historyListBox .tablebox .tableTop .add{ margin-right: 0px}
+.historyListBox .tablebox .tableTop .export{margin-right: 10px}
+.historyListBox .tablebox table{width:100%; border-collapse:collapse;text-align:center;}
+.historyListBox .tablebox th{ height:40px; background:#f3f3f3; color:#333; font-size:14px; font-weight:normal;text-align:center;}
+.historyListBox .tablebox td{ height:40px;color:#888; font-size:12px;} 
+.historyListBox .tablebox td a{ font-size:12px; color:#35B558; margin:0 15px;cursor:pointer;}
+.historyListBox .tablebox td a:hover{color:red; text-decoration:underline;}
+.historyListBox .page{ text-align:center; padding-top:28px;}
+.historyListBox .page span{ font-size:14px; color:#888; cursor:pointer;}
+.historyListBox .page span:hover{ text-decoration:underline;}
+.historyListBox .page a{ display:inline-block; font-size:14px; color:#888; width:17px; height:17px; text-align:center; line-height:17px; border-radius:3px; cursor:pointer;}
+
+.historyListBox .page a:hover{ background:#35B558; color:#fff;}
+.historyListBox .page a.current{background:#35B558; color:#fff;}
+.historyListBox .page a.pre{font-size:14px;width: 50px}
+.historyListBox .page a.next{font-size:14px;width: 50px}
+
+.historyListBox .addStudentBox{display:none; position:absolute; width:313px; height:281px; border:1px solid #d6d6d6; border-radius:5px; top:200px; left:223px; background:#fff; overflow:hidden;}
+.historyListBox .addStudentBox h4{ background:#35B558; width:100%; height:49px; color:#fff; font-size:12px; line-height:49px; padding-left:15px; margin-bottom:48px;}
+.historyListBox .addStudentBox h4 .exit{ cursor:pointer;width:20px; height:20px; background:#f00; float:right; margin-top:13px; margin-right:31px;background:url(../images/icon_nav.png) no-repeat 0 -683px; *margin-top:-33px;}
+.historyListBox .addStudentBox .numbox{}
+.historyListBox .addStudentBox .namebox{ padding-top:26px; padding-bottom:47px;}
+.historyListBox .addStudentBox a{ font-size:12px; color:#333; padding-left:39px; padding-right:20px;}
+.historyListBox .addStudentBox .inputbox{ display:inline; width:126px; height:25px; border:1px solid #e7e8e9; margin-bottom:26px;}
+.historyListBox .addStudentBox .inputbox input{ font-size:14px; color:#333;}
+.historyListBox .addStudentBox button{ width:74px; height:20px; color:#888; font-size:12px; line-height:20px;  border-radius:3px;}
+.historyListBox .addStudentBox button:hover{ background:#35B558; color:#fff;}
+.historyListBox .addStudentBox .btn1{ margin-left:63px;}
+.historyListBox .addStudentBox .btn2{ margin-left:38px;}
+.historyListBox .importStudentBox{ display:none; position:absolute; width:313px; height:281px; border:1px solid #d6d6d6; border-radius:5px; top:200px; left:223px; background:#fff; overflow:hidden;}
+.historyListBox .importStudentBox h4{ background:#35B558; width:100%; height:49px; color:#fff; font-size:12px; line-height:49px; padding-left:15px; margin-bottom:48px;}
+.historyListBox .importStudentBox h4 .exit{ cursor:pointer;width:20px; height:20px; background:url(../images/icon_nav.png) 0 -683px no-repeat; float:right; margin-top:13px; margin-right:31px; *margin-top:-33px;}
+.historyListBox .importStudentBox p{ padding-left:37px; font-size:12px; color:#888;}
+.historyListBox .importStudentBox p .filebox{ position:relative; width:100px; overflow:hidden;font-size:12px; color:#35B558;cursor:pointer;}
+.historyListBox .importStudentBox p .filebox:hover{ text-decoration:underline;}
+.historyListBox .importStudentBox p .filebox .f_upload_btn{ position:absolute; top:0; left:0; *left:-2px; opacity: 0;filter: alpha(opacity=0);width:20px; height:16px; cursor:pointer;}
+.historyListBox .importStudentBox .center{ padding-top:30px; padding-left:35px;}
+.historyListBox .importStudentBox .center input{ vertical-align:middle; width:166px; height:25px; border:1px solid #e7e8e9;}
+.historyListBox .importStudentBox .center button{ vertical-align:middle; width:74px; height:20px; background:#e5e6e7; border:1px solid #d4d4d4; color:#888; font-size:12px; margin-left:13px; line-height:20px;}
+.historyListBox .importStudentBox .center button:hover{ background:#35B558; color:#fff;}
+.historyListBox .importStudentBox .downtxt{padding-top:17px; font-size:12px; color:#888;}
+.historyListBox .importStudentBox a{  font-size:12px; color:#fff;text-decoration:none; cursor:pointer;}
