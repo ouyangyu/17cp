@@ -97,9 +97,11 @@
 
                                 </div><!--addStudentBox end--->
 
-                                <form  method='post' action="{:U('testin/Index/importStudent')}" enctype="multipart/form-data">
+                                <form id="uploadStudent"  method='post' action="{:U('testin/Index/importStudent')}" enctype="multipart/form-data">
                                     <input type="hidden"  name="class_id" value="{$titleList['class_id']}">
                                     <input type="hidden"  name="grade_id" value="{$titleList['grade_id']}">
+                                    <input type="hidden"  name="class_name" value="{$titleList['class_name']}">
+                                    <input type="hidden"  name="grade_name" value="{$titleList['grade_name']}">
 
                                     <div class="importStudentBox">
 
@@ -108,8 +110,8 @@
                                         <a  style="color:#fff;padding-right: 10px">{$titleList['class_name']}</a>学生信息上传<a class="exit"></a></h4>
 
                                     <div class="center">
-                                        <input type="file" name="fileExcel"/>
-                                        <button  type="submit">上传</button>
+                                        <input id="fileExcelId" type="file" name="fileExcel"/>
+                                        <button id="importStudentButton" type="button">上传</button>
                                     </div>
                                     <p class="downtxt" >附：<a style="color: #35B558;text-decoration: underline;" href="{:U('testin/Index/download',['type'=>'student'])}">下载学生信息模版</a></p>
                                 </div><!--importStudentBox end--->

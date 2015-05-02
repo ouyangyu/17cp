@@ -8,6 +8,7 @@
                 <include file="_tabs" />
             </div>
             <div id="col7" class="main-right mt15">
+                <form  id="doByHandForm" action="{:U('testin/Index/doByHand')}" enctype="multipart/form-data" method="post">
                 <div id="content">
                     <div id="yjzx_jqyj_1" class="content_wrap">
                         <h2>阅卷中心&gt;&gt;{$tabName}</h2>
@@ -16,9 +17,10 @@
                             <ul>
                                 <li>
                                     <a>考试名称：</a>
-                                    <select style="width: 350px">
+
+                                    <select style="width: 350px" name="pack_id">
                                         <volist name="packNameList" id="pnl">
-                                            <option value="{$pnl.pack.id}">{$pnl.period_name}{$pnl.grade_name}{$pnl.pack_name}</option>
+                                            <option value="{$pnl.pack_id}">{$pnl.period_name}{$pnl.grade_name}{$pnl.pack_name}</option>
                                         </volist>
                                     </select>
                                     <a class="addtestname" href="{:U('testin/Index/testSetting')}">新增考试</a>
@@ -55,38 +57,35 @@
                         <div class="box2 box">
                             <h3>试卷信息</h3>
                             <ul>
-                                <li>总　分：
-                                    <select>
-                                        <option  value="100"  > 100分</option>
-                                        <option  value="120"  > 120分</option>
-                                        <option  value="150"  > 150分</option>
 
-                                    </select>
+                                <li style="float: left;">客观题：共<input id="tqn_input" type="text" name="total_question_number" class="small"/>道题，
+                                    共<input id="objn_input" name="objective_score" type="text" class="small"/>分。
                                 </li>
-                                <li>客观题：<input type="text" class="small"/>题　　--到--　　<input type="text" class="small"/>题，共<input type="text" class="small"/>分。
+                                <li>主观题：共<input id="sjts_input" type="text" name="subjectivity_score" class="small"/>分。
                                 </li>
-                                <li>主观题：共<input type="text" class="small"/>分。
-                                </li>
+                                <!--<li>总　分：
+                                    总共<input id="ts_select" type="text" name="total_score" class="small"/>分。
+                                </li>-->
 
                             </ul>
                         </div><!--box1 end-->
                         <div class="box3 box">
                             <div class="down">
                                 <h3>下载模板</h3>
-                                <p>附：<a href="{:U('testin/Index/downloadExcel')}">学生题目明细成绩模版下载</a></p>
+                                <p>附：<a href="{:U('testin/Index/download',['type'=>'answer'])}">下载学生题目明细成绩模版</a></p>
                             </div>
                             <div class="clear"></div>
 
                             <div class="upload">
                                 <h3>上传成绩</h3>
-                                <p>请上传 Excel 成绩表格：　<input type="file"></p>
+                                <p>请上传 Excel 成绩表格：　<input id="file_answer_input" type="file" name="file_answer"></p>
                             </div>
                         </div>
                         <!--box3 end-->
-                        <button class="next">确定</button>
+                        <button type="button" onclick="$('#doByHandForm').submit();" class="next" id="byHandFormButton">确定</button>
 
 
-                        <div class="addExamInformation" style="display: none">
+                        <!--<div class="addExamInformation" style="display: none">
                             <h4>导入学生信息<a class="exit"></a></h4>
                             <ul>
                                 <li>考试信息： <input type="text"></li>
@@ -97,11 +96,12 @@
                             </ul>
                             <button>保存</button>
                             <button>取消</button>
-                        </div><!--addExamInformation-->
+                        </div>--><!--addExamInformation-->
 
 
                     </div><!--content_wrap end-->
                 </div><!--content end-->
+                </form>
             </div>
         </div>
     </div>

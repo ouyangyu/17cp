@@ -8,7 +8,6 @@
 
 class IndexAction extends Action{
 
-
     /**
      * 控制器初始化
      * @return void
@@ -35,16 +34,15 @@ class IndexAction extends Action{
 
         $plist = D('CpPeriod')->getPeriodList();
         $glist = D('CpGrade')->getGradeList();
-
-        $_SESSION['class_id'] =  isset($_SESSION['class_id']) ? $_SESSION['class_id'] : 1;
-        $_SESSION['grade_id'] = isset($_SESSION['grade_id']) ? $_SESSION['grade_id'] : 12;
-
-
+        $clist = D('CpClass')->getClassList();
+        $this->assign('clist',$clist);
         $this->assign('plist',$plist);
         $this->assign('glist',$glist);
         $this->assign('tab_list',$tab_list);
         $this->assign('tab_list_security',$tab_list_security);
         $this->assign('tab_list_preference',$tab_list_preference);
+
+
 
 
     }
@@ -58,33 +56,37 @@ class IndexAction extends Action{
 
 
     public function stuManager() {
-
-
         $this->appCssList[] = 'css/cjzx_xsgl.css';
-        $clist = D('CpClass')->getClassList();
-        $this->assign('clist',$clist);
 
-        $titleList['class_id'] = $_SESSION['class_id'];
-        $titleList['grade_id'] = $_SESSION['grade_id'];
+
         $titleList['school_id'] = $GLOBALS['ts']['uid'];
-
         $type = t($_POST['type']);
         if($type == 'select') {
-            $titleList['class_id'] = isset($_POST['class_id']) ? $_POST['class_id'] : $_SESSION['class_id'];
-            $titleList['grade_id'] = isset($_POST['grade_id']) ? $_POST['grade_id'] : $_SESSION['grade_id'];
+            $titleList['class_id'] = !empty($_POST['class_id']) ? intval($_POST['class_id']) : 1;
+            $titleList['grade_id'] = !empty($_POST['grade_id']) ? intval($_POST['grade_id']) : 12;
+            $_SESSION['class_id'] = $titleList['class_id'];
+            $_SESSION['grade_id'] = $titleList['grade_id'];
+        } else {
+            if(empty($_SESSION['class_id']) || empty($_SESSION['grade_id'])) {
+                $titleList['class_id'] = 1;
+                $titleList['grade_id'] = 12;
+            }else {
+                $titleList['class_id'] = $_SESSION['class_id'];
+                $titleList['grade_id'] = $_SESSION['grade_id'];
+            }
         }
         $schoolFind = D('CpSchoolInfo')->getOneOrSave($titleList);
-
         if($schoolFind) {
-            $_SESSION['class_id'] = $schoolFind['class_id'];
-            $_SESSION['grade_id'] = $schoolFind['grade_id'];
-            $studentPage = D('CpSchoolStu')->getStudentList($schoolFind['school_info_id'],3);
+            $studentPage = null;
+            $studentPage = D('CpSchoolStu')->getStudentList($schoolFind['school_info_id']);
             $titleList['count_stu'] = $studentPage['count'];
             $this->assign('studentList',$studentPage['data']);
             $this->assign('page', $studentPage['html']);
 
         }
 
+        //$this->class_id = $titleList['class_id'];
+        //$this->grade_id = $titleList['grade_id'];
         $this->assign('titleList',$titleList);
 
         $this->display();
@@ -97,16 +99,31 @@ class IndexAction extends Action{
 
     }
 
+    public function assignPublic() {
+        $packNameList = D('CpPack')->getPackNameList($GLOBALS['ts']['uid']);
+        $subjectList = D('CpSubject')->getSubjectList();
+
+        $this->assign('subjectList',$subjectList);
+        $this->assign('packNameList',$packNameList);
+    }
+
     public function byHand() {
         $this->appCssList[] = 'css/yjzx.css';
+
+        $this->assignPublic();
+
 
 
         $this->display();
 
     }
 
+    public function doByHand() {
+        dump($_POST);die();
+    }
     public function byMachine() {
         $this->appCssList[] = 'css/yjzx.css';
+        $this->assignPublic();
         $this->display();
 
     }
@@ -195,16 +212,45 @@ class IndexAction extends Action{
     }
 
     public function importStudent() {
-        if(!empty($_POST['class_id']) && !empty($_POST['grade_id'])) {
-            $class_id = intval($_POST['class_id']);
-            $grade_id = intval($_POST['grade_id']);
 
-            $result = D('CpUtil')->upload("student");
-            if($result['status']) {
-                $result = D('CpUtil')->readExcel($result['data'],['A'=>'student_id','B'=>'student_name']);
-                dump($result);die();
+        if(!empty($_FILES['fileExcel']['tmp_name']) && !empty($_POST['class_id']) && !empty($_POST['grade_id'])) {
+            $schoolInfo['class_id'] = intval($_POST['class_id']);
+            $schoolInfo['grade_id'] = intval($_POST['grade_id']);
+            $schoolInfo['school_id'] = $GLOBALS['ts']['uid'];
+            $schoolInfo['dec'] = t($_POST['grade_name']).'*'.t($_POST['class_name']);
+            $uploadResult = D('CpUtil')->upload("student");
+            if($uploadResult['status']) {
+
+                $schoolFind = D('CpSchoolInfo')->getOneOrSave($schoolInfo,true);
+
+                $user['school_info_id'] = is_array($schoolFind) ? $schoolFind['school_info_id'] : $schoolFind;
+                $user['school_info_number'] = $schoolInfo['school_id'].'*'.$schoolInfo['grade_id'].'*'.$schoolInfo['class_id'];
+                $result = D('CpUtil')->readExcel($uploadResult['data'],['A'=>'student_id','B'=>'student_name']);
+
+                if($result['status']) {
+                    foreach( $result['data'] as $student) {
+                        //dump($student);
+                        $user['student_id'] = $student['student_id'];
+                        $user['student_name'] = $student['student_name'];
+                        $import = D('CpSchoolStu')->importStudentInfo($user);
+                        //dump(M()->getLastsql());die();
+
+                        $message = $import ? "上传成功！" : "上传失败！";
+                    }
+                } else {
+                    $message = $result['data'];
+                }
+
+            } else {
+                $message = $uploadResult['data'];
             }
+        }else {
+            $message = "请检查！";
         }
+        echo "<script type='text/javascript'>alert('".$message."');window.location.href='".U('testin/Index/stuManager')."';</script>";
+
+        //$this->redirect('testin/Index/stuManager');
+
     }
     public function download() {
         $type = t($_GET['type']);
@@ -216,7 +262,7 @@ class IndexAction extends Action{
         }
         if($type == 'answer') {
             $file = PUBLIC_PATH.'/answerExcel/scwjgs.xls';
-            $name = "成绩信息模板.xls";
+            $name = "学生题目明细成绩模版.xls";
             D('CpUtil')->download($file,$name);
         }
 

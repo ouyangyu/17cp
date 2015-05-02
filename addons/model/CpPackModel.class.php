@@ -62,7 +62,7 @@ class CpPackModel extends Model {
             $nowPage = $_GET['p'] ? $_GET['p'] : 1;
             $page->nowPage = $nowPage;
             //$nowPage = isset($_GET['p'])?$_GET['p']:1;
-            $list = $this->where($map)->order($order)->limit(($nowPage-1)*$page->listRows.','.$nowPage*$page->listRows)->select();
+            $list = $this->where($map)->order($order)->limit(($nowPage-1)*$page->listRows.','.$page->listRows)->select();
 
             $pageList['data'] = $list;
             $pageList['count'] = $count;

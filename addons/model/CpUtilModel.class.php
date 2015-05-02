@@ -22,7 +22,6 @@ class CpUtilModel extends Model {
         /**取得一共有多少行*/
         $allRow = $currentSheet->getHighestRow();
 
-
         $allColumn = chr(64+count($indexArray));
 
         //循环读取每个单元格的内容。注意行从1开始，列从A开始,基于从第三行开始
@@ -33,7 +32,10 @@ class CpUtilModel extends Model {
                 //$fieldAddr = $colIndex.'2';
                 $cell = $currentSheet->getCell($addr)->getValue();
                 if(empty($cell)) {
-                    return false;
+                    return [
+                        'status'=>false,
+                        'data' => "数据有误！"
+                    ];
                 }
                 //$field = $currentSheet->getCell($fieldAddr)->getValue();
                 if($cell instanceof PHPExcel_RichText)     //富文本转换字符串
@@ -46,7 +48,18 @@ class CpUtilModel extends Model {
             }
         }
 
-        return $data;
+          if($data) {
+              return [
+                  'status'=>true,
+                  'data' => $data
+              ];
+          } else {
+              return [
+                  'status'=>false,
+                  'data' => "数据为空！"
+              ];
+          }
+
 
     }
 

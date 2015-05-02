@@ -21,6 +21,8 @@ abstract class Action
 	protected	$mid = 0;
 	protected	$uid = 0;
 
+
+
     /**
      * 架构函数 取得模板对
      * @access public

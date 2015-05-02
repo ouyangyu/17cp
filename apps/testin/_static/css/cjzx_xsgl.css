@@ -45,7 +45,7 @@ h3{color:#333; font-size:14px; padding-top:37px; padding-left:35px; padding-bott
 .historyListBox .page{ text-align:center; padding-top:28px;}
 .historyListBox .page span{ font-size:14px; color:#888; cursor:pointer;}
 .historyListBox .page span:hover{ text-decoration:underline;}
-.historyListBox .page a{ display:inline-block; font-size:14px; color:#888; width:17px; height:17px; text-align:center; line-height:17px; border-radius:3px; cursor:pointer;}
+.historyListBox .page a{ display:inline-block; font-size:14px; color:#888; width:25px; height:17px; text-align:center; line-height:17px; border-radius:3px; cursor:pointer;}
 
 .historyListBox .page a:hover{ background:#35B558; color:#fff;}
 .historyListBox .page a.current{background:#35B558; color:#fff;}
